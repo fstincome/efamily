@@ -117,7 +117,7 @@ export const MbanzaChat: React.FC = () => {
           "Je ne réponds pas aux étrangers. Cet espace appartient à la famille. Veuillez vous connecter pour discuter avec moi."
         </p>
         <button 
-          onClick={() => window.location.href = ''} 
+          onClick={() => window.location.reload()} 
           className="mt-8 bg-blue-600 text-white px-8 py-3 rounded-full font-black uppercase text-[10px] tracking-widest hover:scale-105 transition-all"
         >
           Se connecter au Hub
