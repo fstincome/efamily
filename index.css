@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* Syntaxe v4 pour la détection de la classe .dark */
+@variant dark (&:where(.dark, .dark *));
+
+/* On définit les styles de base sans @apply pour éviter les erreurs de compilation au début */
+body {
+  background-color: white;
+  color: #0f172a; /* slate-900 */
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+}
+
+.dark body {
+  background-color: #020617; /* slate-950 */
+  color: white;
+}

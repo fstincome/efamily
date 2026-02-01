@@ -1,0 +1,9 @@
+{
+  "name": "Burundi Digital Hub",
+  "description": "The advanced, multi-feature gateway for Burundi. Integrating AI, IoT traffic monitoring, and secure e-services.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
