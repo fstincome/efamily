@@ -95,7 +95,7 @@ export const LoginPortal: React.FC = () => {
           </div>
 
           <h2 className="text-4xl font-black italic uppercase tracking-tighter dark:text-white mb-2">
-            Elite <span className="text-blue-600">Access</span>
+            Family <span className="text-blue-600">Access</span>
           </h2>
           
           <form onSubmit={handleLogin} className="space-y-4 text-left mt-8">
