@@ -20,7 +20,6 @@ import { ContactDirectory } from './ContactDirectory'; // Nouveau
 import { AdminNewsManager } from './AdminNewsManager'; // Nouveau
 
 const ADMIN_FAMILY_ID = '11111111-1111-1111-1111-111111111111';
-
 export const AdminDashboardView = () => {
   // --- ÉTATS DE NAVIGATION ET UI ---
   const [activeTab, setActiveTab] = useState('home');
