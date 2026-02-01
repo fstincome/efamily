@@ -166,7 +166,7 @@ const App: React.FC = () => {
         
         {/* <Footer /> */}
         
-        <a 
+        {/* <a 
           href="https://wa.me/25761128298?text=Bonjour%20Hyady%20Family" 
           target="_blank" 
           rel="noopener noreferrer"
@@ -183,7 +183,7 @@ const App: React.FC = () => {
               <span className="group-hover:translate-x-1 transition-transform">→</span>
             </span>
           </div>
-        </a>
+        </a> */}
       </div>
     </I18nextProvider>
   );
