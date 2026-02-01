@@ -135,15 +135,16 @@ useEffect(() => {
   icon={<Newspaper/>} 
   label="Journal Hub" 
   active={activeTab === 'news'} 
-  onClick={() => {setActiveTab('news'); setIsMobileMenuOpen(false);}} 
-/>
-       
-
-        <div className="p-8 border-t border-slate-50">
+             <div className="p-8 border-t border-slate-50">
           <button onClick={handleLogout} className="w-full flex items-center justify-center gap-3 p-4 bg-red-50 text-red-500 font-black uppercase text-[10px] rounded-2xl hover:bg-red-500 hover:text-white transition-all">
             <LogOut size={16}/> Déconnexion
           </button>
         </div>
+  onClick={() => {setActiveTab('news'); setIsMobileMenuOpen(false);}} 
+/>
+       
+
+       
            </nav>
       </aside>
 
