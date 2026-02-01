@@ -5,7 +5,6 @@ import { HomeView } from './components/HomeView';
 import { NewsView } from './components/NewsView';
 import { UtilitiesView } from './components/UtilitiesView';
 import { TrafficView } from './components/TrafficView';
-import { FoodView } from './components/FoodView';
 import { EventsView } from './components/EventsView';
 import { MbanzaChat } from './components/MbanzaChat';
 import { MarketplaceView } from './components/MarketplaceView';
@@ -165,7 +164,7 @@ const App: React.FC = () => {
           {renderContent()}
         </main>
         
-        {/* <Footer /> */}
+        <Footer />
         
         <a 
           href="https://wa.me/25761128298?text=Bonjour%20Hyady%20Family" 

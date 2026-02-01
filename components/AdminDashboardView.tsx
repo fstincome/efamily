@@ -218,7 +218,7 @@ useEffect(() => {
                 {/* Liste des Budgets par Enveloppe */}
                 <div className="bg-white p-10 rounded-[50px] shadow-sm border border-slate-100">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
-                        <p className="text-3xl font-black italic uppercase tracking-tighter">Répartition Budgets</p>
+                        <p className="text-3xl font-black italic uppercase tracking-tighter"> Budgets</p>
                         <div className="flex flex-wrap gap-2">
                             <TabBtn label="Essentiels" active={budgetTab === 'essentiels'} color="blue" onClick={() => setBudgetTab('essentiels')} />
                             <TabBtn label="Développement" active={budgetTab === 'dev'} color="purple" onClick={() => setBudgetTab('dev')} />

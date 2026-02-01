@@ -80,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                  {'HYADY LEGACY '} <span className="text-blue-600">{'OS 2018-•'} {currentYear} </span>
                </span> 
                <span className="text-[8px] font-black tracking-[0.3em] text-slate-400 dark:text-slate-500  mt-1">
-                 {t('L\'alchimie du temps changée en patrimoine éternel.')} 
+                 {'L\'alchimie du temps changée en patrimoine éternel.'} 
                </span>
             </div>
           </div>
