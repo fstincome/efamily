@@ -122,6 +122,15 @@ useEffect(() => {
       Admin Panel 2026
     </p>
   </div>
+      {/* DÉCONNEXION — DANS LE NAVBAR */}
+    <div className="mt-auto pt-6 pb-8">
+      <button
+        onClick={handleLogout}
+        className="w-full flex items-center justify-center gap-3 p-4 bg-red-50 text-red-500 font-black uppercase text-[10px] rounded-2xl hover:bg-red-500 hover:text-white transition-all"
+      >
+        <LogOut size={16} /> Déconnexion
+      </button>
+    </div>
 
   {/* NAVIGATION */}
   <nav className="flex-1 flex flex-col px-6 mt-4 lg:mt-0 overflow-y-auto no-scrollbar">
@@ -156,16 +165,6 @@ useEffect(() => {
       active={activeTab === 'news'}
       onClick={() => { setActiveTab('news'); setIsMobileMenuOpen(false); }}
     />
-
-    {/* DÉCONNEXION — DANS LE NAVBAR */}
-    <div className="mt-auto pt-6 pb-8">
-      <button
-        onClick={handleLogout}
-        className="w-full flex items-center justify-center gap-3 p-4 bg-red-50 text-red-500 font-black uppercase text-[10px] rounded-2xl hover:bg-red-500 hover:text-white transition-all"
-      >
-        <LogOut size={16} /> Déconnexion
-      </button>
-    </div>
   </nav>
 </aside>
 
