@@ -106,47 +106,69 @@ useEffect(() => {
         </button>
       </div>
 
-      {/* SIDEBAR (Menu de navigation gauche) */}
-      <aside className={`fixed lg:relative inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-100 flex flex-col transition-transform duration-300 transform ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
-        <div className="p-10 hidden lg:block">
-          <div className="text-xl font-black tracking-tighter text-blue-600">HYADY<span className="text-slate-900">LEGACY OS</span></div>
-          <p className="text-[9px] font-black  text-slate-300 mt-2 tracking-[0.4em]"> Admin Panel 2026</p>
-        </div>
+      /* {/* SIDEBAR (Menu de navigation gauche) */}
+      {/* SIDEBAR */}
+<aside
+  className={`fixed lg:relative inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-100 flex flex-col transition-transform duration-300 transform ${
+    isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+  }`}
+>
+  {/* LOGO */}
+  <div className="p-10 hidden lg:block">
+    <div className="text-xl font-black tracking-tighter text-blue-600">
+      HYADY<span className="text-slate-900">LEGACY OS</span>
+    </div>
+    <p className="text-[9px] font-black text-slate-300 mt-2 tracking-[0.4em]">
+      Admin Panel 2026
+    </p>
+  </div>
 
-        <nav className="flex-1 px-6 space-y-1 mt-4 lg:mt-0 overflow-y-auto no-scrollbar">
-          <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest px-5 mb-2">Finance</p>
-          <MenuBtn icon={<LayoutDashboard/>} label="Dashboard" active={activeTab === 'home'} onClick={() => {setActiveTab('home'); setIsMobileMenuOpen(false);}} />
-          <MenuBtn icon={<History/>} label="Entrées/Revenus" active={activeTab === 'entries'} onClick={() => {setActiveTab('entries'); setIsMobileMenuOpen(false);}} />
-          <MenuBtn icon={<Wallet/>} label="Gestion Budgets" active={activeTab === 'finances'} onClick={() => {setActiveTab('finances'); setIsMobileMenuOpen(false);}} />
-          
-          <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest px-5 mt-6 mb-2">Famille & Vie</p>
-          <MenuBtn icon={<Users/>} label="Membres" active={activeTab === 'family'} onClick={() => {setActiveTab('family'); setIsMobileMenuOpen(false);}} />
-          <MenuBtn icon={<HeartPulse/>} label="Santé" active={activeTab === 'health'} onClick={() => {setActiveTab('health'); setIsMobileMenuOpen(false);}} />
-          <MenuBtn icon={<GraduationCap/>} label="Éducation" active={activeTab === 'edu'} onClick={() => {setActiveTab('edu'); setIsMobileMenuOpen(false);}} />
-          
-          <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest px-5 mt-6 mb-2">Projets & Pro</p>
-          <MenuBtn icon={<Briefcase/>} label="Projets Dev" active={activeTab === 'projects'} onClick={() => {setActiveTab('projects'); setIsMobileMenuOpen(false);}} />
-          <MenuBtn icon={<CalendarCheck/>} label="Planning" active={activeTab === 'agenda'} onClick={() => {setActiveTab('agenda'); setIsMobileMenuOpen(false);}} />
-          <MenuBtn icon={<CheckSquare/>} label="To-Do & Courses" active={activeTab === 'todo'} onClick={() => {setActiveTab('todo'); setIsMobileMenuOpen(false);}} />
-          <MenuBtn icon={<Contact2/>} label="Annuaire" active={activeTab === 'contacts'} onClick={() => {setActiveTab('contacts'); setIsMobileMenuOpen(false);}} />
-          
-          {/* FUTURS AJOUTS : Insérer de nouveaux boutons de menu ici */}
-          <MenuBtn 
-  icon={<Newspaper/>} 
-  label="Journal Hub" 
-  active={activeTab === 'news'} 
-             <div className="p-8 border-t border-slate-50">
-          <button onClick={handleLogout} className="w-full flex items-center justify-center gap-3 p-4 bg-red-50 text-red-500 font-black uppercase text-[10px] rounded-2xl hover:bg-red-500 hover:text-white transition-all">
-            <LogOut size={16}/> Déconnexion
-          </button>
-        </div>
-  onClick={() => {setActiveTab('news'); setIsMobileMenuOpen(false);}} 
-/>
-       
+  {/* NAVIGATION */}
+  <nav className="flex-1 flex flex-col px-6 mt-4 lg:mt-0 overflow-y-auto no-scrollbar">
+    {/* FINANCE */}
+    <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest px-5 mb-2">
+      Finance
+    </p>
+    <MenuBtn icon={<LayoutDashboard />} label="Dashboard" active={activeTab === 'home'} onClick={() => { setActiveTab('home'); setIsMobileMenuOpen(false); }} />
+    <MenuBtn icon={<History />} label="Entrées/Revenus" active={activeTab === 'entries'} onClick={() => { setActiveTab('entries'); setIsMobileMenuOpen(false); }} />
+    <MenuBtn icon={<Wallet />} label="Gestion Budgets" active={activeTab === 'finances'} onClick={() => { setActiveTab('finances'); setIsMobileMenuOpen(false); }} />
 
-       
-           </nav>
-      </aside>
+    {/* FAMILLE */}
+    <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest px-5 mt-6 mb-2">
+      Famille & Vie
+    </p>
+    <MenuBtn icon={<Users />} label="Membres" active={activeTab === 'family'} onClick={() => { setActiveTab('family'); setIsMobileMenuOpen(false); }} />
+    <MenuBtn icon={<HeartPulse />} label="Santé" active={activeTab === 'health'} onClick={() => { setActiveTab('health'); setIsMobileMenuOpen(false); }} />
+    <MenuBtn icon={<GraduationCap />} label="Éducation" active={activeTab === 'edu'} onClick={() => { setActiveTab('edu'); setIsMobileMenuOpen(false); }} />
+
+    {/* PRO */}
+    <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest px-5 mt-6 mb-2">
+      Projets & Pro
+    </p>
+    <MenuBtn icon={<Briefcase />} label="Projets Dev" active={activeTab === 'projects'} onClick={() => { setActiveTab('projects'); setIsMobileMenuOpen(false); }} />
+    <MenuBtn icon={<CalendarCheck />} label="Planning" active={activeTab === 'agenda'} onClick={() => { setActiveTab('agenda'); setIsMobileMenuOpen(false); }} />
+    <MenuBtn icon={<CheckSquare />} label="To-Do & Courses" active={activeTab === 'todo'} onClick={() => { setActiveTab('todo'); setIsMobileMenuOpen(false); }} />
+    <MenuBtn icon={<Contact2 />} label="Annuaire" active={activeTab === 'contacts'} onClick={() => { setActiveTab('contacts'); setIsMobileMenuOpen(false); }} />
+
+    <MenuBtn
+      icon={<Newspaper />}
+      label="Journal Hub"
+      active={activeTab === 'news'}
+      onClick={() => { setActiveTab('news'); setIsMobileMenuOpen(false); }}
+    />
+
+    {/* DÉCONNEXION — DANS LE NAVBAR */}
+    <div className="mt-auto pt-6 pb-8">
+      <button
+        onClick={handleLogout}
+        className="w-full flex items-center justify-center gap-3 p-4 bg-red-50 text-red-500 font-black uppercase text-[10px] rounded-2xl hover:bg-red-500 hover:text-white transition-all"
+      >
+        <LogOut size={16} /> Déconnexion
+      </button>
+    </div>
+  </nav>
+</aside>
+
 
       {/* ZONE DE CONTENU PRINCIPAL */}
       <main className="flex-1 p-6 lg:p-12 overflow-y-auto bg-slate-50/20 w-full">
