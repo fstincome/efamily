@@ -164,7 +164,7 @@ const App: React.FC = () => {
           {renderContent()}
         </main>
         
-        <Footer />
+        {/* <Footer /> */}
         
         <a 
           href="https://wa.me/25761128298?text=Bonjour%20Hyady%20Family" 
