@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { supabase } from '../src/supabaseClient';
-import { Plus, Loader2, Banknote, AlertCircle } from 'lucide-react';
+import { Plus, Loader2, Banknote, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export const IncomeForm = ({ familyId, onSuccess }: { familyId: string, onSuccess: () => void }) => {
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false); // Nouvel état
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -11,6 +12,7 @@ export const IncomeForm = ({ familyId, onSuccess }: { familyId: string, onSucces
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMsg(null);
+    setShowSuccess(false);
 
     if (!amount || parseFloat(amount) <= 0) {
       setErrorMsg("Entrez un montant valide.");
@@ -20,14 +22,12 @@ export const IncomeForm = ({ familyId, onSuccess }: { familyId: string, onSucces
     setLoading(true);
 
     try {
-      // 1. Vérification de la session avant d'envoyer
       const { data: { session } } = await supabase.auth.getSession();
       
       if (!session) {
         throw new Error("Session expirée. Veuillez vous reconnecter.");
       }
 
-      // 2. Insertion du revenu
       const { error } = await supabase.from('finance_transactions').insert([{
         family_id: familyId,
         type: 'revenu',
@@ -38,14 +38,19 @@ export const IncomeForm = ({ familyId, onSuccess }: { familyId: string, onSucces
 
       if (error) throw error;
 
-      // Succès
+      // --- EFFET DE SUCCÈS ---
       setAmount('');
       setDescription('');
-      onSuccess(); 
+      setShowSuccess(true);
+      
+      // On attend 800ms pour laisser le trigger SQL finir sa répartition
+      setTimeout(() => {
+        onSuccess();
+        setTimeout(() => setShowSuccess(false), 3000); // Cache le message après 3s
+      }, 800);
       
     } catch (err: any) {
       console.error("Erreur transaction:", err);
-      // Gestion spécifique du JWT Expired
       if (err.message?.includes('JWT') || err.status === 401) {
         setErrorMsg("Votre session a expiré. Déconnectez-vous et reconnectez-vous.");
       } else {
@@ -57,7 +62,9 @@ export const IncomeForm = ({ familyId, onSuccess }: { familyId: string, onSucces
   };
 
   return (
-    <div className="bg-white p-8 rounded-[40px] border-2 border-emerald-100 shadow-sm relative overflow-hidden group">
+    <div className={`bg-white p-8 rounded-[40px] border-2 transition-all duration-500 shadow-sm relative overflow-hidden group ${showSuccess ? 'border-emerald-500 bg-emerald-50/30' : 'border-emerald-100'}`}>
+      
+      {/* Animation d'arrière-plan */}
       <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform">
         <Banknote size={64} className="text-emerald-600" />
       </div>
@@ -67,8 +74,14 @@ export const IncomeForm = ({ familyId, onSuccess }: { familyId: string, onSucces
       </h4>
 
       {errorMsg && (
-        <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 text-xs font-bold flex items-center gap-2 rounded-r-xl animate-shake">
+        <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 text-xs font-bold flex items-center gap-2 rounded-r-xl animate-bounce">
           <AlertCircle size={16} /> {errorMsg}
+        </div>
+      )}
+
+      {showSuccess && (
+        <div className="mb-4 p-4 bg-emerald-500 text-white text-xs font-black uppercase tracking-widest flex items-center gap-3 rounded-2xl shadow-lg shadow-emerald-200 animate-in fade-in zoom-in">
+          <CheckCircle2 size={20} /> Répartition automatique effectuée !
         </div>
       )}
 
@@ -97,11 +110,13 @@ export const IncomeForm = ({ familyId, onSuccess }: { familyId: string, onSucces
 
         <button 
           type="submit"
-          disabled={loading}
-          className="w-full bg-slate-900 text-white py-5 rounded-3xl font-black uppercase text-[10px] tracking-[0.2em] shadow-xl hover:bg-emerald-600 hover:scale-[1.02] active:scale-95 transition-all flex justify-center items-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={loading || showSuccess}
+          className={`w-full py-5 rounded-3xl font-black uppercase text-[10px] tracking-[0.2em] shadow-xl transition-all flex justify-center items-center gap-3 ${showSuccess ? 'bg-emerald-500 text-white' : 'bg-slate-900 text-white hover:bg-emerald-600 hover:scale-[1.02]'}`}
         >
           {loading ? (
             <Loader2 className="animate-spin" size={20} />
+          ) : showSuccess ? (
+            "Argent Réparti ✅"
           ) : (
             <>
               <Plus size={20} /> Confirmer l'encaissement

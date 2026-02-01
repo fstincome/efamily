@@ -100,7 +100,7 @@ useEffect(() => {
       
       {/* HEADER MOBILE (Visible uniquement sur petits écrans) */}
       <div className="lg:hidden bg-white p-6 border-b flex justify-between items-center z-30 shadow-sm">
-        <div className="text-2xl font-black italic text-blue-600 tracking-tighter">HUB<span className="text-slate-900">BURUNDI</span></div>
+        <div className="text-2xl font-black  text-blue-600 tracking-tighter">HYADY<span className="text-slate-900">LEGACY OS</span></div>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 bg-slate-100 rounded-xl">
           {isMobileMenuOpen ? <X /> : <Menu />}
         </button>
@@ -109,8 +109,8 @@ useEffect(() => {
       {/* SIDEBAR (Menu de navigation gauche) */}
       <aside className={`fixed lg:relative inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-100 flex flex-col transition-transform duration-300 transform ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-10 hidden lg:block">
-          <div className="text-3xl font-black italic tracking-tighter text-blue-600">HUB<span className="text-slate-900">BURUNDI</span></div>
-          <p className="text-[9px] font-black uppercase text-slate-300 mt-2 tracking-[0.4em]">Node Admin 2026</p>
+          <div className="text-xl font-black tracking-tighter text-blue-600">HYADY<span className="text-slate-900">LEGACY OS</span></div>
+          <p className="text-[9px] font-black  text-slate-300 mt-2 tracking-[0.4em]"> Admin Panel 2026</p>
         </div>
 
         <nav className="flex-1 px-6 space-y-1 mt-4 lg:mt-0 overflow-y-auto no-scrollbar">
@@ -233,7 +233,12 @@ useEffect(() => {
 
             {/* VUES : MODULES FINANCIERS */}
             {activeTab === 'entries' && <EntriesHistory transactions={filteredTransactions} />}
-            {activeTab === 'finances' && <FinanceManager familyId={ADMIN_FAMILY_ID} onSuccess={fetchStats} />}
+            {/* {activeTab === 'finances' && <FinanceManager familyId={ADMIN_FAMILY_ID} onSuccess={fetchStats} />} */}
+            {activeTab === 'finances' && (<FinanceManager familyId={ADMIN_FAMILY_ID} onSuccess={() => {setTimeout(() => fetchStats(false), 500);
+    }} 
+  />
+)}
+            
 
             {/* VUES : FAMILLE & VIE */}
             {activeTab === 'family' && <FamilyManager familyId={ADMIN_FAMILY_ID} />}
