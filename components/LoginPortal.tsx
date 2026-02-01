@@ -105,7 +105,7 @@ export const LoginPortal: React.FC = () => {
               <input 
                 required
                 type="email" 
-                placeholder={t('login_placeholder_email')} 
+                placeholder={'Votre e-mail'} 
                 className="w-full p-5 pl-14 bg-slate-50 dark:bg-slate-800 rounded-2xl outline-none border-2 border-transparent focus:border-blue-600 dark:text-white font-bold italic transition-all"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -117,7 +117,7 @@ export const LoginPortal: React.FC = () => {
               <input 
                 required
                 type={showPassword ? "text" : "password"} 
-                placeholder={t('login_placeholder_pass')} 
+                placeholder={t('Password')} 
                 className="w-full p-5 pl-14 pr-14 bg-slate-50 dark:bg-slate-800 rounded-2xl outline-none border-2 border-transparent focus:border-blue-600 dark:text-white font-bold italic transition-all"
                 onChange={(e) => setPassword(e.target.value)}
               />
