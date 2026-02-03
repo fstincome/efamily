@@ -35,7 +35,8 @@ import i18n from './src/i18n';
 
 const App: React.FC = () => {
   const { t } = useTranslation();
-  const [view, setView] = useState<AppView>('home');
+  // const [view, setView] = useState<AppView>('home');
+  const [view, setView] = useState<AppView>('admin');
   const [loading, setLoading] = useState(true);
   const [session, setSession] = useState<any>(null);
   const [eliteUser, setEliteUser] = useState<any>(null); 
