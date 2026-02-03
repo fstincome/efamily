@@ -161,7 +161,8 @@ const App: React.FC = () => {
           toggleDarkMode={toggleDarkMode} 
         />
         
-        <main className="max-w-7xl mx-auto px-4 lg:px-12 py-10 relative z-10">
+        {/* <main className="max-w-7xl mx-auto px-4 lg:px-12 py-10 relative z-10"> */}
+        <main className="w-full mx-auto px-4 lg:px-6 py-6 relative z-10">
           {renderContent()}
         </main>
         
