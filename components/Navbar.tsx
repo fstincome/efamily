@@ -48,8 +48,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Items de navigation avec icônes Lucide pour plus de finesse
   const navItems = [
-    { id: 'home' as AppView, label: 'Accueil', icon: <Home size={18} /> },
-    { id: 'news' as AppView, label: 'Actualités', icon: <Newspaper size={18} /> },
+    { id: 'home' as AppView, label: 'Galerie', icon: <Home size={18} /> },
+    { id: 'news' as AppView, label: 'News', icon: <Newspaper size={18} /> },
     // { id: 'jobs' as AppView, label: t('nav_jobs'), icon: <BriefcaseBusiness size={18} /> },
     // { id: 'register' as AppView, label: t('nav_register'), icon: <UserPlus size={18} /> },
     // { id: 'marketplace' as AppView, label: t('nav_market'), icon: <ShoppingBag size={18} /> },

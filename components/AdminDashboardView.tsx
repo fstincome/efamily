@@ -106,7 +106,7 @@ useEffect(() => {
         </button>
       </div>
 
-      /* {/* SIDEBAR (Menu de navigation gauche) */}
+       {/* SIDEBAR (Menu de navigation gauche) */}
       {/* SIDEBAR */}
 <aside
   className={`fixed lg:relative inset-y-0 left-0 z-40 w-72 bg-white border-r border-slate-100 flex flex-col transition-transform duration-300 transform ${
